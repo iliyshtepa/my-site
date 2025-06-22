@@ -1,6 +1,12 @@
-import sqlite3
+import psycopg2
 
-conn = sqlite3.connect("projects.db")
+conn = psycopg2.connect(
+    host="dpg-d1c21tadbo4c73csgeaug-a",
+    port="5432",
+    dbname="dbname_r7g1",
+    user="admin",
+    password="NUcx6inEwt05RoIMaicMoKEB#tDW6}Hk"
+)
 cursor = conn.cursor()
 
 # Добавим новое поле, если оно ещё не существует
@@ -13,7 +19,13 @@ conn.commit()
 conn.close()
 print("Таблица 'projects' обновлена")
 
-conn = sqlite3.connect("projects.db")
+conn = psycopg2.connect(
+    host="dpg-d1c21tadbo4c73csgeaug-a",
+    port="5432",
+    dbname="dbname_r7g1",
+    user="admin",
+    password="NUcx6inEwt05RoIMaicMoKEB#tDW6}Hk"
+)
 cursor = conn.cursor()
 
 cursor.execute("""

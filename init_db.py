@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS projects (
 
 # Добавим несколько проектов
 cursor.executemany("""
-INSERT INTO projects (title, description, image) VALUES (?, ?, ?)
+INSERT INTO projects (title, description, image) VALUES (%s, %s, %s)
 """, [
     ("Площадка у школы №7", "Современная спортивная зона с безопасным покрытием.", "project1.jpg"),
     ("Парковая зона «Центр»", "Озеленение, дорожки, малые архитектурные формы.", "project2.jpg"),

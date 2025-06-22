@@ -6,7 +6,6 @@ from functools import wraps
 from flask_migrate import Migrate
 from datetime import datetime
 
-
 app = Flask(__name__)
 app.secret_key = "spetsstroy_super_secret_2025"
 
@@ -298,4 +297,9 @@ def upload_images(project_id):
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
+
+import os
+
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)

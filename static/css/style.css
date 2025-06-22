@@ -1,0 +1,53 @@
+/* Основной цвет */
+:root {
+  --primary: #1f3c88;
+  --light: #e5eaf5;
+  --text-dark: #222;
+}
+
+/* Общие настройки */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--light);
+  color: var(--text-dark);
+}
+
+/* Заголовки */
+h1, h2, h3 {
+  color: var(--primary);
+}
+
+/* Карточки */
+.card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Кнопки */
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background: #163172;
+}
+
+/* Навигация */
+nav a {
+  color: var(--primary);
+  text-decoration: none;
+  margin-right: 1rem;
+}
+nav a:hover {
+  text-decoration: underline;
+}

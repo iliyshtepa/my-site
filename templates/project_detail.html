@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{ project.title }} - Проект{% endblock %}
+
+{% block content %}
+<section class="bg-white p-6 rounded-xl shadow mt-10 max-w-5xl mx-auto">
+  <h1 class="text-3xl font-bold text-primary mb-4">{{ project.title }}</h1>
+  
+  <p class="text-gray-800 text-base mb-6 break-words max-w-full whitespace-pre-line text-justify">
+    {{ project.full_description or project.description }}
+  </p>
+
+  {% if images %}
+    <h2 class="text-xl font-semibold text-primary mb-2">Фотогалерея проекта</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+      {% for img in images %}
+        <img src="{{ url_for('static', filename='img/' ~ img.filename) }}"
+             alt="Фото {{ loop.index }}"
+             class="rounded-lg shadow object-cover w-full h-48">
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="text-gray-500">Нет загруженных изображений для этого проекта.</p>
+  {% endif %}
+</section>
+{% endblock %}

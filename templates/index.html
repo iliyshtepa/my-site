@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Главная - Тамань Спецстрой{% endblock %}
+
+{% block content %}
+
+<!-- Визуальный баннер -->
+<!-- Фоновое изображение на весь экран -->
+<section class="relative h-screen bg-cover bg-center"
+         style="background-image: url('{{ url_for('static', filename='img/background.jpg') }}');">
+  
+  <div class="absolute inset-0"></div>
+
+  <div class="relative z-10 flex flex-col justify-center items-center text-center h-full px-4 max-w-3xl mx-auto">
+    
+    <div class="bg-black bg-opacity-70 p-6 rounded-xl">
+      <h1 class="text-3xl sm:text-5xl font-bold mb-4 text-white drop-shadow">
+        Надёжный партнёр в сфере строительства
+      </h1>
+      <p class="text-white text-base sm:text-lg drop-shadow">
+        ООО «Тамань Спецстрой» — команда профессионалов с более чем 10-летним опытом в дорожном, промышленном и гражданском строительстве.
+      </p>
+    </div> 
+
+    <a href="/projects"
+       class="mt-6 inline-block bg-white text-primary font-semibold px-6 py-3 rounded-xl hover:bg-gray-100 transition shadow-lg">
+      Наши проекты
+    </a>
+
+  </div>
+</section>
+
+
+
+<section class="bg-white p-6 rounded-xl shadow mb-12">
+  <h2 class="text-3xl font-bold text-primary mb-4">О компании</h2>
+
+  <p class="text-gray-700 text-lg mb-4">
+    <strong>ООО «Тамань Спецстрой»</strong> — это надёжная строительная организация, реализующая комплексные проекты по благоустройству и инфраструктурному развитию в Темрюкском районе и за его пределами.
+  </p>
+
+  <p class="text-gray-700 mb-4">
+    Основные направления деятельности компании:
+  </p>
+  <ul class="list-disc pl-6 text-gray-700 mb-6">
+    <li>Благоустройство территорий</li>
+    <li>Создание парковых зон</li>
+    <li>Строительство детских и спортивных площадок</li>
+    <li>Асфальтирование автомобильных дорог и площадей</li>
+  </ul>
+
+  <p class="text-gray-700 mb-4">
+    Под руководством <strong>Шамрая Евгения Анатольевича</strong>, компания демонстрирует высокий уровень профессионализма и ответственности. Руководитель внесён в региональную <a href="https://www.temryuk.ru/nash-rayon/doska-pocheta/2023/shamray-evgeniy-anatolevich/" target="_blank" class="text-blue-600 underline hover:text-blue-800">Доску почёта Темрюкского района</a> за значительный вклад в развитие муниципалитета.
+  </p>
+
+  <a href="/services" class="btn-primary">Подробнее об услугах</a>
+</section>
+
+
+<!-- Карточки с переходами -->
+<section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-16">
+  <a href="/services" class="card hover:shadow-lg transition">
+    <h2 class="text-xl font-semibold text-primary">Услуги</h2>
+    <p class="text-sm mt-2 text-gray-600">Проектирование, строительство, аренда техники</p>
+  </a>
+  <a href="/projects" class="card hover:shadow-lg transition">
+    <h2 class="text-xl font-semibold text-primary">Проекты</h2>
+    <p class="text-sm mt-2 text-gray-600">Реализованные объекты и текущие работы</p>
+  </a>
+  <a href="/news" class="card hover:shadow-lg transition">
+    <h2 class="text-xl font-semibold text-primary">Новости</h2>
+    <p class="text-sm mt-2 text-gray-600">Свежие события, обновления, тендеры</p>
+  </a>
+  <a href="/partners" class="card hover:shadow-lg transition">
+    <h2 class="text-xl font-semibold text-primary">Партнёры</h2>
+    <p class="text-sm mt-2 text-gray-600">Клиенты и стратегические союзники</p>
+  </a>
+  <a href="/contacts" class="card hover:shadow-lg transition">
+    <h2 class="text-xl font-semibold text-primary">Контакты</h2>
+    <p class="text-sm mt-2 text-gray-600">Адрес, телефон, форма обратной связи</p>
+  </a>
+</section>
+
+<!-- Призыв к действию -->
+<section class="text-center py-12 bg-white rounded-xl shadow-md">
+  <h3 class="text-2xl font-bold text-primary mb-4">Готовы начать сотрудничество?</h3>
+  <p class="text-gray-700 mb-6">Оставьте заявку или свяжитесь с нами прямо сейчас.</p>
+  <a href="/contacts" class="btn-primary">Связаться с нами</a>
+</section>
+
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+<!-- Кратко о компании -->
+<section class="grid md:grid-cols-2 gap-10 items-center mb-16">
+  <div>
+    <h3 class="text-2xl font-bold text-primary mb-4">О компании</h3>
+    <p class="text-gray-700 mb-4">
+      Мы выполняем полный цикл работ: от проектирования до сдачи объектов "под ключ". Используем современные технологии, надёжную технику и проверенные материалы.
+    </p>
+    <a href="/about" class="btn-primary">Подробнее о нас</a>
+  </div>
+  <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Логотип" class="w-64 mx-auto rounded-xl shadow">
+</section>
+{% block title %}О компании - Тамань Спецстрой{% endblock %}
+
+{% block content %}
+<!-- Изображение-вступление -->
+<div class="w-full overflow-hidden">
+  <img src="{{ url_for('static', filename='img/about.jpg') }}"
+       alt="О компании Тамань Спецстрой"
+       class="w-full h-64 sm:h-96 object-cover object-center">
+</div>
+
+
+<section class="bg-white py-12 px-6 max-w-6xl mx-auto rounded-xl shadow-lg">
+  <h2 class="text-3xl font-bold text-primary mb-6">О компании</h2>
+
+  <p class="text-gray-800 mb-4">
+    <strong>ООО "Тамань Спецстрой"</strong> — это надёжная строительная компания с более чем 18-летним опытом работы, основанная в 2005 году. Мы специализируемся на выполнении полного спектра строительно-монтажных и благоустроительных работ.
+  </p>
+
+  <p class="text-gray-800 mb-4">
+    Компания зарегистрирована в <strong>Темрюкском районе, ст. Вышестеблиевская</strong> и состоит в СРО «Краснодарские строители». Мы обладаем правом выполнять строительные и подрядные работы по объектам капитального строительства, включая реконструкцию, капитальный ремонт и снос (за исключением особо опасных и технически сложных объектов).
+  </p>
+
+
+  <h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Основные направления деятельности</h3>
+  <ul class="list-disc list-inside text-gray-700 space-y-1">
+    <li>Строительство жилых и нежилых зданий</li>
+    <li>Благоустройство территорий</li>
+    <li>Строительство дорог и автомагистралей</li>
+    <li>Производство электромонтажных, сантехнических и отделочных работ</li>
+    <li>Монтаж сборных конструкций</li>
+    <li>Грузовые перевозки и логистика</li>
+  </ul>
+
+
+<h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Миссия и ценности</h3>
+<p class="text-gray-800 mb-4">
+  Мы стремимся к созданию комфортной, безопасной и современной городской среды. 
+  Наша цель — быть надёжным партнёром в реализации инфраструктурных и социальных проектов любого масштаба.
+</p>
+<ul class="list-disc list-inside text-gray-700 space-y-1">
+  <li>Качество и соблюдение сроков</li>
+  <li>Прозрачность и честность в работе</li>
+  <li>Ответственность перед заказчиком и обществом</li>
+  <li>Профессиональная команда и современные технологии</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Основные этапы развития</h3>
+<ul class="space-y-3 text-gray-700">
+  <li><strong>2005:</strong> Основание ООО «Тамань Спецстрой»</li>
+  <li><strong>2010:</strong> Первые муниципальные контракты</li>
+  <li><strong>2018:</strong> Внедрение новых технологий благоустройства</li>
+  <li><strong>2020:</strong> Вступление в СРО «Краснодарские строители»</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Крупные реализованные проекты</h3>
+  <ul class="list-disc list-inside text-gray-700 space-y-1">
+    <li>СИДРКа Тамань</li>
+    <li>Парк Кучугуры</li>
+    <li>Парк х. Белый</li>
+    <li>Благоустройство территории «Вилла Аристов»</li>
+    <li>АБК АО АФ «Южная»</li>
+    <li>Территория винзавода «Шато Тамань»</li>
+  </ul>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+  <img src="{{ url_for('static', filename='img/5418203967093073568.jpg') }}" class="rounded-lg shadow-md object-cover w-full h-64">
+  <img src="{{ url_for('static', filename='img/project2.jpg') }}"class="rounded-lg shadow-md object-cover w-full h-64">
+  <img src="{{ url_for('static', filename='img/project3.jpg') }}" class="rounded-lg shadow-md object-cover w-full h-64">
+</div>
+
+  <h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Юридическая информация</h3>
+  <ul class="text-gray-700 space-y-1">
+    <li><strong>Полное наименование:</strong> Общество с ограниченной ответственностью «Тамань Спецстрой»</li>
+    <li><strong>ИНН:</strong> 2352037542</li>
+    <li><strong>ОГРН:</strong> 1052329072070</li>
+    <li><strong>Дата регистрации:</strong> 27 сентября 2005 г.</li>
+    <li><strong>Директор:</strong> Шамрай Евгений Анатольевич</li>
+    <li><strong>Адрес:</strong> 353541, Краснодарский край, Темрюкский район, ст. Вышестеблиевская, пер. Степной, д. 2</li>
+    <li><strong>Членство в СРО:</strong> Союз «СРО Краснодарские строители» с 09.09.2020</li>
+    <li><strong>Уровень ответственности:</strong> до 90 млн. руб. по договорам подряда</li>
+  </ul>
+
+  <div class="mt-8">
+  <a href="{{ url_for('static', filename='docs/Выписка_из_реестра_членов_ООО_Тамань_Спецстрой (1).pdf') }}"
+     target="_blank" class="text-blue-600 hover:underline mr-4">
+    Скачать выписку из СРО
+  </a>
+  <a href="{{ url_for('static', filename='docs/выниска из ЕГРЮЛ (1).pdf') }}"
+     target="_blank" class="text-blue-600 hover:underline">
+    Скачать выписку из ЕГРЮЛ
+  </a>
+</div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "admin/base.html" %}
+{% block title %}Проекты{% endblock %}
+
+{% block content %}
+<div class="flex justify-between items-center mb-6">
+  <h2 class="text-2xl font-bold text-blue-700">Проекты</h2>
+  <a href="/admin/add-project" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+    + Добавить проект
+  </a>
+</div>
+
+<!-- Сетка карточек -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  {% for project in projects %}
+    <div class="bg-white border rounded-xl shadow-sm overflow-hidden flex flex-col h-[380px]">
+
+      <!-- Изображение -->
+      <div class="h-[180px] overflow-hidden">
+        <img src="{{ url_for('static', filename='img/' ~ project.image) }}"
+             alt="{{ project.title }}"
+             class="w-full h-full object-cover">
+      </div>
+
+      <!-- Контент -->
+      <div class="p-4 flex flex-col justify-between flex-1">
+        <div>
+          <h3 class="text-base font-semibold text-blue-800">{{ project.title }}</h3>
+          <p class="text-sm text-gray-600 mt-1 overflow-hidden" style="max-height: 3.6em;">
+            {{ project.description or "Описание отсутствует" }}
+          </p>
+        </div>
+
+        <!-- Кнопки -->
+      <form method="POST" action="/delete-project/{{ project.id }}">
+            <button type="submit" class="text-red-600 hover:underline">Удалить</button>
+        </form>
+
+        <form method="GET" action="/admin/edit/{{ project.id }}">
+            <button type="submit" class="text-indigo-600 hover:underline">Редактировать</button>
+        </form>
+
+        <form method="GET" action="/admin/upload-images/{{ project.id }}">
+            <button type="submit" class="text-blue-600 hover:underline">Загрузить фото</button>
+        </form>
+
+      </div>
+
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Управление проектами{% endblock %}
+
+{% block content %}
+<section class="max-w-4xl mx-auto mt-10 bg-white p-6 rounded-xl shadow">
+  <h2 class="text-2xl font-bold text-primary mb-6">Администрирование проектов</h2>
+
+  <!-- Форма добавления -->
+  <form method="POST" enctype="multipart/form-data" class="grid gap-4 mb-10">
+  <input type="text" name="title" placeholder="Название проекта" required class="border p-2 rounded w-full">
+  <textarea name="description" placeholder="Краткое описание" rows="2" required class="border p-2 rounded w-full"></textarea>
+  <input type="file" name="image" accept=".jpg,.jpeg,.png" class="border p-2 rounded w-full">
+  <button type="submit" class="btn-primary w-fit">Добавить проект</button>
+</form>
+
+
+
+  <!-- Список проектов -->
+ <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    {% for project in projects %}
+      <div class="border rounded-lg p-4 shadow">
+  <h3 class="font-semibold text-primary">{{ project.title }}</h3>
+  <p class="text-sm text-gray-600 mb-2">{{ project.description }}</p>
+  <img src="..." class="w-full h-32 object-cover rounded">
+
+        <form method="POST" action="/delete-project/{{ project.id }}" class="mt-2">
+          <button type="submit" class="text-red-600 hover:underline text-sm">Удалить</button>
+        </form>
+
+<form action="/admin/upload-images/{{ project.id }}" method="get">
+  <button type="submit" class="text-blue-600 hover:underline text-sm mt-1">📷 Загрузить фото</button>
+</form>
+
+<form action="/admin/edit/{{ project.id }}" method="get">
+  <button type="submit" class="text-indigo-600 hover:underline text-sm mt-1">✏️ Редактировать</button>
+</form>
+
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

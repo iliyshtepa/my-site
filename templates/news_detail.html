@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ item.title }}{% endblock %}
+{% block content %}
+<article class="prose max-w-none">
+  <h1>{{ item.title }}</h1>
+  <p class="text-gray-500">{{ item.created_at.strftime('%d.%m.%Y') }}</p>
+
+  {% if item.image %}
+    <img src="{{ url_for('static', filename='img/' ~ item.image) }}" class="my-4 rounded">
+  {% endif %}
+
+  <p>{{ item.summary }}</p>
+  <div class="mt-4 whitespace-pre-line">{{ item.content }}</div>
+</article>
+{% endblock %}

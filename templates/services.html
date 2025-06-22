@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Услуги — Тамань Спецстрой{% endblock %}
+
+{% block content %}
+<section class="relative min-h-screen bg-cover bg-left-top"
+         style="background-image: url('{{ url_for('static', filename='img/services-bg.jpg') }}');">
+
+  <!-- Контент справа без фона -->
+  <div class="relative z-10 flex justify-end items-center min-h-screen px-4 sm:px-12">
+    <div class="max-w-xl p-6 sm:p-10 text-white text-right space-y-6">
+      
+      <h1 class="text-4xl font-bold drop-shadow-xl">Наши услуги</h1>
+
+      <p class="text-lg drop-shadow">
+        Мы предлагаем полный спектр строительных и благоустроительных работ:
+      </p>
+
+      <ul class="list-disc list-inside text-white text-left drop-shadow space-y-2">
+        <li>Благоустройство территорий</li>
+        <li>Создание парковых зон</li>
+        <li>Строительство детских и спортивных площадок</li>
+        <li>Асфальтирование дорог и площадей</li>
+        <li>Предоставление различной техники в аренду</li>
+        <li>Прайс ООО Тамань СпецСтрой</li> <a href="{{ url_for('static', filename='docs/прайс ООО Тамань Спецстрой.docx') }}" class="text-blue-600 hover:underline" download>скачать здесь</a>
+  </p>
+      </ul>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

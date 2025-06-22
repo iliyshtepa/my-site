@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Тамань Спецстрой{% endblock %}</title>
+
+  <!-- Tailwind для быстрой верстки -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Кастомные стили -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-light text-gray-900">
+
+ <header class="bg-white shadow p-4 mb-6">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+
+    <!-- Логотип + Название -->
+    <div class="flex items-center space-x-3 mb-2 md:mb-0">
+      <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Логотип" class="w-12 h-12 object-contain">
+      <h1 class="text-xl font-bold text-primary">ООО "Тамань Спецстрой"</h1>
+    </div>
+    
+    <!-- Навигация -->
+    <nav class="flex flex-wrap justify-center gap-3 text-sm text-blue-700">
+
+      <a href="/" class="hover:underline">Главная</a>
+      <a href="/about" class="hover:underline">О компании</a>
+      <a href="/services" class="hover:underline">Услуги</a>
+      <a href="/projects" class="hover:underline">Проекты</a>
+      <a href="{{ url_for('news') }}">Новости</a>
+      <a href="/contacts" class="hover:underline">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+
+  <!-- Контент -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-8">
+    {% block content %}
+    {% endblock %}
+  </main>
+
+<<footer class="bg-gray-100 text-sm text-gray-700 py-8 mt-12 border-t">
+ <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    
+    <!-- Контактная информация -->
+  <div>
+      <h4 class="text-base font-semibold text-primary mb-2">Контакты</h4>
+      <p>Email: <a href="mailto:tcc2005@yandex.ru" class="text-blue-600 hover:underline">tcc2005@yandex.ru</a></p>
+      <p>Телефон: <a href="tel:+78614835372" class="text-blue-600 hover:underline">+7 (86148) 3-53-72</a></p>
+      <p>Адрес: <br>353541, Россия,<br> Краснодарский край, Темрюкский район,<br> ст. Вышестеблиевская, пер. Степной, 2</p>
+    </div>
+
+    <!-- Быстрые ссылки -->
+    <div>
+      <h4 class="text-base font-semibold text-primary mb-2">Разделы сайта</h4>
+      <ul class="space-y-1">
+        <li><a href="/" class="hover:underline">Главная</a></li>
+        <li><a href="/about" class="hover:underline">О компании</a></li>
+        <li><a href="/services" class="hover:underline">Услуги</a></li>
+        <li><a href="/projects" class="hover:underline">Проекты</a></li>
+        <li><a href="/contacts" class="hover:underline">Контакты</a></li>
+      </ul>
+    </div>
+
+    <!-- Соцсети -->
+    <div>
+      <h4 class="text-base font-semibold text-primary mb-2">Мы в соцсетях</h4>
+      <div class="flex space-x-4 text-lg mt-2">
+        <a href="https://t.me/" target="_blank" title="Telegram" class="hover:text-blue-500">📨</a>
+        <a href="https://wa.me/78614835372" target="_blank" title="WhatsApp" class="hover:text-green-600">💬</a>
+        <a href="https://vk.com/" target="_blank" title="ВКонтакте" class="hover:text-blue-700">🔵</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Низ футера -->
+  <div class="text-center text-xs text-gray-500 mt-8">
+    © 2025 ООО "Тамань Спецстрой". Все права защищены.
+  </div>
+</footer>
+
+
+</body>
+</html>

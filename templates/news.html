@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Новости{% endblock %}
+{% block content %}
+<h2 class="text-3xl font-bold mb-8">Новости</h2>
+
+{% for n in news %}
+  <article class="card mb-6 p-4">
+    {% if n.image %}
+      <img src="{{ url_for('static', filename='img/' ~ n.image) }}" class="w-full h-48 object-cover rounded" alt="">
+    {% endif %}
+    <h3 class="text-xl font-semibold mt-4">
+      <a href="{{ url_for('news_detail', news_id=n.id) }}">{{ n.title }}</a>
+    </h3>
+    <p class="text-sm text-gray-500">{{ n.created_at.strftime('%d.%m.%Y') }}</p>
+    <p class="mt-2">{{ n.summary }}</p>
+  </article>
+{% endfor %}
+{% endblock %}

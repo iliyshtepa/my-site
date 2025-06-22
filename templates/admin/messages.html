@@ -1,0 +1,48 @@
+{% extends "admin/base.html" %}
+{% block title %}Заявки{% endblock %}
+
+{% block content %}
+<h2 class="text-2xl font-bold text-blue-700 mb-6">Заявки с формы обратной связи</h2>
+
+{% if messages %}
+    <div class="space-y-4">
+        {% for msg in messages %}
+           <div class="bg-white border border-gray-300 rounded-lg shadow-sm p-5 space-y-2 hover:shadow-md transition duration-200">
+    <p class="text-sm"><strong>Имя:</strong> {{ msg.name }}</p>
+    <p class="text-sm"><strong>Email:</strong> <a href="mailto:{{ msg.email }}" class="text-blue-600 underline">{{ msg.email }}</a></p>
+    <p class="text-sm"><strong>Телефон:</strong> {{ msg.phone }}</p>
+    {% if msg.created_at %}
+        <p class="text-sm"><strong>Дата:</strong> {{ msg.created_at.strftime('%d.%m.%Y %H:%M') }}</p>
+    {% else %}
+        <p class="text-sm"><strong>Дата:</strong> —</p>
+    {% endif %}
+    <p class="text-sm"><strong>Сообщение:</strong><br>
+        <span class="break-words block max-w-full text-gray-800">
+            {{ msg.message }}
+        </span>
+    </p>
+
+    <div class="flex flex-wrap gap-3 mt-3">
+        {% if not msg.is_read %}
+            <form method="POST" action="{{ url_for('mark_as_read', message_id=msg.id) }}" class="inline">
+
+                <button type="submit" class="bg-green-500 text-white text-sm px-3 py-1 rounded hover:bg-green-600 transition">
+                    Отметить как прочитанное
+                </button>
+            </form>
+        {% else %}
+            <span class="text-gray-500 text-sm italic">Прочитано</span>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('delete_message', message_id=msg.id) }}">
+            <button type="submit" class="text-red-600 hover:text-red-800 text-sm">Удалить</button>
+        </form>
+    </div>
+</div>
+
+        {% endfor %}
+    </div>
+{% else %}
+    <p>Сообщений пока нет.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Добавить новость{% endblock %}
+
+{% block content %}
+<section class="max-w-2xl mx-auto bg-white p-6 rounded-xl shadow mt-12">
+  <h2 class="text-2xl font-bold text-primary mb-4">Добавить новость</h2>
+
+  <!-- Форма -->
+  <form method="POST" enctype="multipart/form-data" class="grid gap-4">
+
+    <!-- Заголовок -->
+    <input type="text"
+           name="title"
+           placeholder="Заголовок новости"
+           required
+           class="border p-2 rounded w-full">
+
+    <!-- Краткое описание -->
+    <textarea name="summary"
+              rows="2"
+              placeholder="Краткое описание"
+              required
+              class="border p-2 rounded w-full"></textarea>
+
+    <!-- Полный текст -->
+    <textarea name="content"
+              rows="6"
+              placeholder="Полный текст (необязательно)"
+              class="border p-2 rounded w-full"></textarea>
+
+    <!-- Обложка -->
+    <input type="file"
+           name="image"
+           accept=".jpg,.jpeg,.png"
+           class="border p-2 rounded w-full">
+
+    <!-- Кнопки -->
+    <div class="flex items-center gap-4">
+      <button type="submit" class="btn-primary">Сохранить</button>
+      <a href="{{ url_for('admin_news') }}" class="text-sm text-gray-500 hover:underline">← Назад</a>
+    </div>
+  </form>
+</section>
+{% endblock %}

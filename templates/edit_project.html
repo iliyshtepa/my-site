@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Редактировать проект{% endblock %}
+
+{% block content %}
+<section class="max-w-2xl mx-auto bg-white p-6 rounded-xl shadow mt-12">
+  <h2 class="text-2xl font-bold text-primary mb-4">Редактировать проект</h2>
+
+  <form method="POST" enctype="multipart/form-data" class="grid gap-4">
+    <input type="text" name="title" value="{{ project.title }}" required class="border p-2 rounded">
+    <textarea name="description" rows="2" required class="border p-2 rounded">{{ project.description }}</textarea>
+    <textarea name="full_description" rows="4" class="border p-2 rounded">{{ project.full_description }}</textarea>
+    
+    <div>
+      <p class="text-sm text-gray-500">Текущая обложка: {{ project.image }}</p>
+      <input type="file" name="image" accept=".jpg,.jpeg,.png" class="border p-2 rounded">
+    </div>
+
+    <button type="submit" class="btn-primary w-fit">Сохранить</button>
+    <a href="/admin" class="text-sm text-gray-500 underline">← Назад</a>
+  </form>
+</section>
+{% endblock %}

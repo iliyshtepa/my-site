@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Сообщения с формы - Админка{% endblock %}
+
+{% block content %}
+<h2 class="text-2xl font-bold text-primary mb-4">Сообщения с формы обратной связи</h2>
+
+{% if messages %}
+  <div class="space-y-4">
+    {% for msg in messages %}
+      <div class="border border-gray-300 p-4 rounded shadow">
+        <p><strong>Имя:</strong> {{ msg.name }}</p>
+        <p><strong>Email:</strong> <a href="mailto:{{ msg.email }}" class="text-blue-600">{{ msg.email }}</a></p>
+        <p><strong>Сообщение:</strong> {{ msg.message }}</p>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p class="text-gray-600">Сообщений пока нет.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "admin/base.html" %}
+{% block title %}Редактировать новость{% endblock %}
+
+{% block content %}
+<h2 class="text-2xl font-bold text-blue-700 mb-6">Редактировать новость</h2>
+
+<form method="POST" enctype="multipart/form-data" class="space-y-4">
+
+  <!-- Заголовок -->
+  <input type="text"
+         name="title"
+         value="{{ item.title }}"
+         placeholder="Заголовок новости"
+         class="w-full border rounded px-4 py-2"
+         required>
+
+  <!-- Краткое описание -->
+  <textarea name="summary"
+            rows="3"
+            placeholder="Краткое описание"
+            class="w-full border rounded px-4 py-2"
+            required>{{ item.summary }}</textarea>
+
+  <!-- Полный текст -->
+  <textarea name="content"
+            rows="6"
+            placeholder="Полный текст (необязательно)"
+            class="w-full border rounded px-4 py-2">{{ item.content }}</textarea>
+
+  <!-- Обложка -->
+  <div>
+    <label class="block mb-1">Текущее изображение:</label>
+
+    {% if item.image %}
+      <img src="{{ url_for('static', filename='img/' ~ item.image) }}"
+           alt="Текущее изображение"
+           class="w-48 mb-2 rounded">
+    {% else %}
+      <p class="text-sm text-gray-500 mb-2">— нет изображения —</p>
+    {% endif %}
+
+    <input type="file"
+           name="image"
+           accept=".jpg,.jpeg,.png"
+           class="w-full border rounded px-4 py-2">
+  </div>
+
+  <!-- Кнопка -->
+  <button type="submit"
+          class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+    Сохранить изменения
+  </button>
+</form>
+{% endblock %}

@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.secret_key = "spetsstroy_super_secret_2025"
 
 # PostgreSQL
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:Mama2309@localhost/spetsstroy_db"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin:NUcx6inEwt05RoIMaicMoKEB%23tDW6%7DHk@dpg-d1c21tadbo4c73csgeaug-a:5432/dbname_r7g1'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 # Папка для загрузки изображений
